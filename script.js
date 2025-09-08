@@ -13,7 +13,23 @@ const game = (function() {
         [2, 4, 6]
     ];
 
-    
+    function createBoard() {
+        for(let i = 0; i < gameBoard.length; i++) {
+
+        }
+    }
+
+    function initializeGame() {};
+
+    function changePlayer() {};
+
+    function checkWinner() {};
+
+    function restartGame() {};
+
+    function updateBoard() {};
+
+    function cellClicked() {};
 })();
 
 // Alt way to build out different sections
