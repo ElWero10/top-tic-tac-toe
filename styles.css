@@ -4,3 +4,27 @@
     font-family: sans-serif;
     box-sizing: border-box;
 }
+
+body {
+    display: flex;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 300px;
+    border: 2px solid black;
+}
+
+.cell {
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+}
+
+.cell:hover {
+    cursor: pointer;
+}

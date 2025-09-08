@@ -1,4 +1,7 @@
 const game = (function() {
+    const stats = document.querySelector(".stats");
+    const board = document.querySelector(".board");
+
     let gameBoard = ["", "", "", "", "", "", "", "", ""];
     let running = false;
     let currentPlayer = "X";
@@ -15,7 +18,9 @@ const game = (function() {
 
     function createBoard() {
         for(let i = 0; i < gameBoard.length; i++) {
-
+            let cell = document.createElement("div");
+            cell.classList.add("cell");
+            board.appendChild(cell);
         }
     }
 
@@ -30,19 +35,6 @@ const game = (function() {
     function updateBoard() {};
 
     function cellClicked() {};
+
+    return {createBoard}
 })();
-
-// Alt way to build out different sections
-
-// const gameBoard = {
-//     board: ["", "", "", "", "", "", "", "", ""],
-// }
-
-// const players = {
-//     player1: "X",
-//     player2: "O",
-// }
-
-// const gameLogic = {
-//     checkWinner: function() {}
-// }
