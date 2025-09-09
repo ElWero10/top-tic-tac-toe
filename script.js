@@ -64,6 +64,7 @@ const game = (function() {
         let a;
         let b;
         let c;
+        let cells = Array.from(board.children);
 
         for(let i = 0; i < winCombinations.length; i++) {
             let combination = winCombinations[i];
@@ -73,22 +74,25 @@ const game = (function() {
             
             if(gameBoard[a] == gameBoard[b] && gameBoard[b] == gameBoard[c] && gameBoard[b] != "") {
                 stats.textContent = `${currentPlayer} is the winner!`;
+                cells.forEach(cell => {
+                    cell.removeEventListener("click", updateBoard)
+                    cell.classList.add("disabled")
+                });
+            
                 running = false;
                 return;
             } else if (!gameBoard.includes("")) {
                 stats.textContent = "It's a tie!";
+                cells.forEach(cell => { 
+                    cell.removeEventListener("click", updateBoard);
+                    cell.classList.add("disabled");
+                });
                 running = false;
                 return;
             }
         }
         changePlayer();
     };
-
-    function endGame() {
-        if(!running) {
-            
-        }
-    }
 
     function initializeGame() {
         running = true;

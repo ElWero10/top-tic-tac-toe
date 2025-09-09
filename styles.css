@@ -36,6 +36,10 @@ body {
     cursor: pointer;
 }
 
+.cell.disabled:hover {
+    cursor: default;
+}
+
 .reset {
     padding: 1rem 2rem;
     border-radius: 40px;
