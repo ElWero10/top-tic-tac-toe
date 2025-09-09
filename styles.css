@@ -42,3 +42,7 @@ body {
     background-color: hsl(120deg 50% 50% / .7);
     font-size: 1.2rem;
 }
+
+.stats {
+    font-size: 2rem;
+}

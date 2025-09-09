@@ -36,6 +36,7 @@ const game = (function() {
 
     function changePlayer() {
         currentPlayer == "X" ? currentPlayer = "O" : currentPlayer = "X";
+        stats.textContent = `It is ${currentPlayer}'s turn.`;
     };
 
     function updateBoard(e) {
@@ -55,6 +56,7 @@ const game = (function() {
     function restartGame() {
         board.innerHTML = "";
         stats.textContent = "";
+        gameBoard = ["", "", "", "", "", "", "", "", ""];
         initializeGame();
     };
 
@@ -72,9 +74,11 @@ const game = (function() {
             if(gameBoard[a] == gameBoard[b] && gameBoard[b] == gameBoard[c] && gameBoard[b] != "") {
                 stats.textContent = `${currentPlayer} is the winner!`;
                 running = false;
+                return;
             } else if (!gameBoard.includes("")) {
                 stats.textContent = "It's a tie!";
                 running = false;
+                return;
             }
         }
         changePlayer();
@@ -88,7 +92,9 @@ const game = (function() {
 
     function initializeGame() {
         running = true;
-        stats.textContent = "";
+        stats.textContent = "It is X's turn.";
+        currentPlayer = 'X';
+        gameBoard = ["", "", "", "", "", "", "", "", ""];
         createBoard();
         addCellListeners();
     };
