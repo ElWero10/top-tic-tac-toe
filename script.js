@@ -1,6 +1,7 @@
 const game = (function() {
     const stats = document.querySelector(".stats");
     const board = document.querySelector(".board");
+    const resetBtn = document.querySelector(".reset");
 
     let gameBoard = ["", "", "", "", "", "", "", "", ""];
     let running = false;
@@ -28,17 +29,27 @@ const game = (function() {
         let cells = Array.from(board.children);
         cells.forEach((cell, index) => {
             cell.setAttribute('id', index);
-            cell.addEventListener("click", (e) => console.log(e))
+            cell.addEventListener("click", updateBoard)
         })
     };
 
-    function changePlayer() {};
+    function changePlayer() {
+        currentPlayer == "X" ? currentPlayer = "O" : currentPlayer = "X";
+    };
 
-    function checkWinner() {};
+    function updateBoard(e) {
+        let cellId = e.target.id;
+        let cell = document.getElementById(cellId);
+        cell.textContent = currentPlayer;
+        changePlayer();
+        checkWinner();
+    };
+
+    function checkWinner() {
+        
+    };
 
     function restartGame() {};
-
-    function updateBoard() {};
 
     function updateStats() {};
 
