@@ -54,6 +54,7 @@ const game = (function() {
 
     function restartGame() {
         board.innerHTML = "";
+        stats.textContent = "";
         initializeGame();
     };
 
@@ -70,14 +71,24 @@ const game = (function() {
             
             if(gameBoard[a] == gameBoard[b] && gameBoard[b] == gameBoard[c] && gameBoard[b] != "") {
                 stats.textContent = `${currentPlayer} is the winner!`;
+                running = false;
+            } else if (!gameBoard.includes("")) {
+                stats.textContent = "It's a tie!";
+                running = false;
             }
         }
         changePlayer();
     };
 
-    function updateStats() {};
+    function endGame() {
+        if(!running) {
+            
+        }
+    }
 
     function initializeGame() {
+        running = true;
+        stats.textContent = "";
         createBoard();
         addCellListeners();
     };
