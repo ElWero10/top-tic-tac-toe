@@ -24,7 +24,13 @@ const game = (function() {
         }
     }
 
-    function initializeGame() {};
+    function addCellListeners() {
+        let cells = Array.from(board.children);
+        cells.forEach((cell, index) => {
+            cell.setAttribute('id', index);
+            cell.addEventListener("click", (e) => console.log(e))
+        })
+    };
 
     function changePlayer() {};
 
@@ -34,7 +40,13 @@ const game = (function() {
 
     function updateBoard() {};
 
-    function cellClicked() {};
+    function updateStats() {};
 
+    function initializeGame() {
+        createBoard();
+        addCellListeners();
+    };
+
+    initializeGame();
     return {createBoard}
 })();
