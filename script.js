@@ -41,9 +41,15 @@ const game = (function() {
     function updateBoard(e) {
         let cellId = e.target.id;
         let cell = document.getElementById(cellId);
-        cell.textContent = currentPlayer;
-        changePlayer();
-        checkWinner();
+
+        if(cell.textContent === "") {
+            cell.textContent = currentPlayer;
+            changePlayer();
+            checkWinner();
+        } else {
+           return;
+        }
+        
     };
 
     function restartGame() {
