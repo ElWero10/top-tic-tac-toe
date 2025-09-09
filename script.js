@@ -2,6 +2,7 @@ const game = (function() {
     const stats = document.querySelector(".stats");
     const board = document.querySelector(".board");
     const resetBtn = document.querySelector(".reset");
+    resetBtn.addEventListener("click", restartGame);
 
     let gameBoard = ["", "", "", "", "", "", "", "", ""];
     let running = false;
@@ -45,11 +46,14 @@ const game = (function() {
         checkWinner();
     };
 
-    function checkWinner() {
-        
+    function restartGame() {
+        board.innerHTML = "";
+        initializeGame();
     };
 
-    function restartGame() {};
+    function checkWinner() {
+
+    };
 
     function updateStats() {};
 
@@ -59,5 +63,5 @@ const game = (function() {
     };
 
     initializeGame();
-    return {createBoard}
+    return {createBoard, restartGame}
 })();
