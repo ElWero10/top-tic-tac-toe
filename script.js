@@ -44,7 +44,7 @@ const game = (function() {
 
         if(cell.textContent === "") {
             cell.textContent = currentPlayer;
-            changePlayer();
+            gameBoard[cellId] = currentPlayer;
             checkWinner();
         } else {
            return;
@@ -58,7 +58,21 @@ const game = (function() {
     };
 
     function checkWinner() {
+        let a;
+        let b;
+        let c;
 
+        for(let i = 0; i < winCombinations.length; i++) {
+            let combination = winCombinations[i];
+            a = combination[0];
+            b = combination[1];
+            c = combination[2];
+            
+            if(gameBoard[a] == gameBoard[b] && gameBoard[b] == gameBoard[c] && gameBoard[b] != "") {
+                stats.textContent = `${currentPlayer} is the winner!`;
+            }
+        }
+        changePlayer();
     };
 
     function updateStats() {};
@@ -69,5 +83,5 @@ const game = (function() {
     };
 
     initializeGame();
-    return {createBoard, restartGame}
+    return {createBoard, restartGame, gameBoard}
 })();
